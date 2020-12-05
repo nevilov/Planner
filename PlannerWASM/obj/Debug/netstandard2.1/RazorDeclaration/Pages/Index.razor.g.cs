@@ -91,7 +91,7 @@ using MatBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerWASM\Pages\Index.razor"
+#line 44 "C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerWASM\Pages\Index.razor"
       
     int position = 0;
 
