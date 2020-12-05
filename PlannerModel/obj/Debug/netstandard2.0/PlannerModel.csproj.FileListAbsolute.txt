@@ -1,9 +1,0 @@
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\bin\Debug\netstandard2.0\PlannerModel.deps.json
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\bin\Debug\netstandard2.0\PlannerModel.dll
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\bin\Debug\netstandard2.0\PlannerModel.pdb
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\obj\Debug\netstandard2.0\PlannerModel.csprojAssemblyReference.cache
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\obj\Debug\netstandard2.0\PlannerModel.AssemblyInfoInputs.cache
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\obj\Debug\netstandard2.0\PlannerModel.AssemblyInfo.cs
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\obj\Debug\netstandard2.0\PlannerModel.csproj.CoreCompileInputs.cache
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\obj\Debug\netstandard2.0\PlannerModel.dll
-C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerModel\obj\Debug\netstandard2.0\PlannerModel.pdb
