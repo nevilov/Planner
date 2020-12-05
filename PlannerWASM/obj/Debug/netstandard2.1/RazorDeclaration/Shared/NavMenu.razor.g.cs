@@ -83,7 +83,7 @@ using PlannerWASM.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerWASM\Shared\NavMenu.razor"
+#line 18 "C:\Users\NevilPC\Desktop\SolarLab\Planner\PlannerWASM\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

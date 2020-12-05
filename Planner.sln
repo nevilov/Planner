@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlannerWASM", "PlannerWASM\PlannerWASM.csproj", "{CD5E3E06-789B-4D3E-8A12-478F72704127}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlannerWASM", "PlannerWASM\PlannerWASM.csproj", "{CD5E3E06-789B-4D3E-8A12-478F72704127}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlannerAPI", "PlannerAPI\PlannerAPI.csproj", "{F6DC0633-4F59-41C3-9D77-8D6AD88D266E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlannerAPI", "PlannerAPI\PlannerAPI.csproj", "{F6DC0633-4F59-41C3-9D77-8D6AD88D266E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlannerModel", "PlannerModel\PlannerModel.csproj", "{81FA881F-6A05-4D6F-9B16-7846064F9AD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F6DC0633-4F59-41C3-9D77-8D6AD88D266E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6DC0633-4F59-41C3-9D77-8D6AD88D266E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6DC0633-4F59-41C3-9D77-8D6AD88D266E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81FA881F-6A05-4D6F-9B16-7846064F9AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81FA881F-6A05-4D6F-9B16-7846064F9AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81FA881F-6A05-4D6F-9B16-7846064F9AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81FA881F-6A05-4D6F-9B16-7846064F9AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
