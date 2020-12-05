@@ -15,5 +15,7 @@ namespace PlannerModel
         DateTime startTodo { get; set; }
 
         DateTime dueTodo { get; set; }
+
+        bool Completed { get; set; }
     }
 }
