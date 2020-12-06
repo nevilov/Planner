@@ -4,18 +4,19 @@ using System.Text;
 
 namespace PlannerModel
 {
-    class PlannerModel
+    public class PlannerModel
     {
-        string Id { get; set; }
+        public string Id { get; set; }
 
-        string Title { get; set; }
 
-        string Description { get; set; }
+        public string Title { get; set; }
 
-        DateTime startTodo { get; set; }
+        public string Description { get; set; }
 
-        DateTime dueTodo { get; set; }
+        public DateTime startTodo { get; set; }
 
-        bool Completed { get; set; }
+        public DateTime dueTodo { get; set; }
+
+        public bool Completed { get; set; }
     }
 }

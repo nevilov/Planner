@@ -3,7 +3,7 @@
 
 <div class="planner main page">
     <div class="create task">
-        <MatButton Unelevated="true" Icon="favorite">Создать задачу</MatButton>
+        <MatButton Unelevated="true" Icon="favorite" @onclick="CreateTodo">Создать задачу</MatButton>
     </div>
     <table class="table">
         <thead class="thead-dark">
@@ -30,17 +30,24 @@
     </table>
 </div>
 <style>
+    .create.task{
+        margin-bottom:20px;
+    }
 </style>
 
 @code{
-    int position = 0;
+    private int position = 0;
+
+    private void CreateTodo() {
+        NavigationManager.NavigateTo("/CreateTodo");
+    }
 
     private void EditTodo() {
         NavigationManager.NavigateTo("/EditTodo");
     }
 
     private void DeleteTodo() {
-
+        NavigationManager.NavigateTo("/DeleteTodo");
     }
 
 
