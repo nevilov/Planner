@@ -1,0 +1,109 @@
+﻿@using PlannerModel;
+@page "/EditTodo"
+
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<h3>EditTodo</h3>
+<div class="Edit todo">
+    <div class="edit todo title">
+        <h3>Редактировать задачу</h3>
+    </div>
+
+    <div class="Edit Todo table">
+        <EditForm Model="@Planner" OnValidSubmit="ValidSubmit" OnInvalidSubmit="InValidSubmit">
+            <div class="edit todo form">
+                <div class="todo item">
+                    <MudItem xs="12" sm="6" md="8">
+                        <MudTextField @bind-Value="Planner.Title"
+                                      Label="Заголовок"
+                                      Required="true"
+                                      RequiredError="Введите заголовок"
+                                      Variant="Variant.Outlined"
+                                      maxlength="20"></MudTextField>
+                    </MudItem>
+                </div>
+                <div class="todo item">
+                    <MudItem xs="12" sm="6" md="8">
+                        <MudTextField @bind-Value="Planner.Description"
+                                      Label="Описание"
+                                      Required="true"
+                                      RequiredError="Введите описание"
+                                      Variant="Variant.Outlined"
+                                      maxlength="50"></MudTextField>
+                    </MudItem>
+                </div>
+                <div class="todo item">
+                    <div class="todo date pickers">
+                        <MatDatePicker @bind-Value="Planner.startTodo"
+                                       Label="Начальная дата"
+                                       Required="true"
+                                       TValue="DateTime"
+                                       FullWidth="false"
+                                       EnableTime="true"
+                                       Minimum="@DateTime.Now.AddDays(1)"
+                                       Maximum="@DateTime.Now.AddDays(1000)" />
+                    </div>
+                    <div class="todo date pickers">
+                        <MatDatePicker @bind-Value="Planner.dueTodo"
+                                       Label="Конечная дата"
+                                       Required="true"
+                                       TValue="DateTime"
+                                       FullWidth="false"
+                                       EnableTime="true"
+                                       Minimum="@DateTime.Now.AddDays(1)"
+                                       Maximum="@DateTime.Now.AddDays(1000)" />
+                    </div>
+                </div>
+                <div class="todo item">
+
+                </div>
+                <div class="edit todo save">
+                    <button type="submit" class="btn btn-success" style="font-size: 20px;">Сохранить</button>
+                </div>
+
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+<style>
+    .edit.todo.title {
+        margin-bottom: 20px;
+    }
+
+    .todo.item {
+        margin: 15px;
+    }
+
+    .todo.date.pickers {
+        display: -webkit-inline-box;
+        padding-right: 10px;
+    }
+
+    .edit.todo.save {
+        margin: 15px;
+    }
+</style>
+
+@code {
+    PlannerModel Planner = new PlannerModel();
+
+    private string StatusMessage;
+    private string StatusClass;
+
+
+    public void ValidSubmit() {
+        StatusClass = "alert-info";
+        StatusMessage = DateTime.Now + " HandleValid submit";
+
+
+    }
+
+    public void InValidSubmit() {
+        StatusClass = "alert-info";
+        StatusMessage = DateTime.Now + " HandleInValid submit";
+    }
+
+}

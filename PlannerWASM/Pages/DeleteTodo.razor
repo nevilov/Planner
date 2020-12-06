@@ -1,0 +1,81 @@
+﻿@using PlannerModel 
+@page "/DeleteTodo"
+
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<h3>DeleteTodo</h3>
+<div class="delete todo form">
+    <div class="todo item">
+        <MudItem xs="12" sm="6" md="8">
+            <MudTextField @bind-Value="Planner.Title"
+                          Label="Заголовок"
+                          Disabled="true"
+                          Variant="Variant.Outlined"
+                          maxlength="20"></MudTextField>
+        </MudItem>
+    </div>
+    <div class="todo item">
+        <MudItem xs="12" sm="6" md="8">
+            <MudTextField @bind-Value="Planner.Description"
+                          Label="Описание"
+                          Disabled="true"
+                          Variant="Variant.Outlined"
+                          maxlength="50"></MudTextField>
+        </MudItem>
+    </div>
+    <div class="todo item">
+        <div class="todo date pickers">
+            <MatDatePicker @bind-Value="Planner.startTodo"
+                           Label="Начальная дата"
+                           Disabled="true"
+                           TValue="DateTime"
+                           FullWidth="false"
+                           EnableTime="true"
+                           Minimum="@DateTime.Now.AddDays(1)"
+                           Maximum="@DateTime.Now.AddDays(1000)" />
+        </div>
+        <div class="todo date pickers">
+            <MatDatePicker @bind-Value="Planner.dueTodo"
+                           Label="Конечная дата"
+                           Disabled="true"
+                           TValue="DateTime"
+                           FullWidth="false"
+                           EnableTime="true"
+                           Minimum="@DateTime.Now.AddDays(1)"
+                           Maximum="@DateTime.Now.AddDays(1000)" />
+        </div>
+    </div>
+    <div class="todo item">
+
+    </div>
+    <div class="delete todo">
+        <button type="submit" class="btn btn-danger" style="font-size: 20px;">Удалить</button>
+    </div>
+    </div>
+
+<style>
+    .delete.todo.title {
+        margin-bottom: 20px;
+    }
+
+    .todo.item {
+        margin: 15px;
+    }
+
+    .todo.date.pickers {
+        display: -webkit-inline-box;
+        padding-right: 10px;
+    }
+
+    .delete.todo {
+        margin: 15px;
+    }
+</style>
+    @code {
+        PlannerModel Planner = new PlannerModel();
+
+
+    }
+   
