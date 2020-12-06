@@ -1,4 +1,4 @@
-﻿
+﻿@inject NavigationManager NavigationManager
 @page "/"
 
 <div class="planner main page">
@@ -17,32 +17,31 @@
             </tr>
         </thead>
         <tbody>
+            <!--Here will be foreach-->
             <tr>
                 <th scope="row">@(++position)</th>
                 <td>F</td>
                 <td>S</td>
                 <td>T</td>
-                <td><MatButton Unelevated="true" Icon="favorite">Редактировать</MatButton></td>
-                <td><MatButton Unelevated="true" Icon="favorite">Удалить</MatButton></td>
+                <td><MatButton Unelevated="true" Icon="favorite" @onclick="EditTodo">Редактировать</MatButton></td>
+                <td><MatButton Unelevated="true" Icon="favorite" @onclick="DeleteTodo" >Удалить</MatButton></td>
             </tr>
-            <tr>
-                <th scope="row">@(++position)</th>
-                <td>F</td>
-                <td>S</td>
-                <td>T</td>
-                <td><MatButton Unelevated="true" Icon="favorite">Редактировать</MatButton></td>
-                <td><MatButton Unelevated="true" Icon="favorite">Удалить</MatButton></td>
-            </tr>
-
         </tbody>
     </table>
 </div>
 <style>
-
 </style>
 
 @code{
     int position = 0;
+
+    private void EditTodo() {
+        NavigationManager.NavigateTo("/EditTodo");
+    }
+
+    private void DeleteTodo() {
+
+    }
 
 
 }

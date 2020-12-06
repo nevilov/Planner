@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlannerWASM", "PlannerWASM\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlannerAPI", "PlannerAPI\PlannerAPI.csproj", "{F6DC0633-4F59-41C3-9D77-8D6AD88D266E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlannerModel", "PlannerModel\PlannerModel.csproj", "{81FA881F-6A05-4D6F-9B16-7846064F9AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlannerModel", "PlannerModel\PlannerModel.csproj", "{81FA881F-6A05-4D6F-9B16-7846064F9AD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
