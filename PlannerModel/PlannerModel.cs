@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PlannerModel
+namespace Planner.Model
 {
     public class PlannerModel
     {

@@ -11,7 +11,7 @@ namespace PlannerAPI
         public PlannerDBContext(DbContextOptions<PlannerDBContext> todos):base(todos) {
         }
 
-        public DbSet<InfoPlanner> InfoPlanners { get; set; }
+        public DbSet<DataPlanner> DataPlanners { get; set; }
 
     }
 }

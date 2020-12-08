@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PlannerAPI
 {
-    public class InfoPlanner
+    public class DataPlanner
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
