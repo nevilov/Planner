@@ -1,4 +1,5 @@
 ﻿@inject NavigationManager NavigationManager
+@using Planner.Model
 @page "/"
 
 <div class="planner main page">
@@ -36,6 +37,8 @@
 </style>
 
 @code{
+    PlannerModel planner = new PlannerModel();
+
     private int position = 0;
 
     private void CreateTodo() {
