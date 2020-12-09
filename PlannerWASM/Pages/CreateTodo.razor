@@ -1,4 +1,6 @@
 ﻿@using Planner.Model
+@inject HttpClient Http
+@inject NavigationManager NavigationManager   
 @page "/CreateTodo"
 <MudThemeProvider/>
 <MudDialogProvider/>
@@ -88,21 +90,15 @@
 @code {
     PlannerModel Planner = new PlannerModel();
 
-    private string StatusMessage;
-    private string StatusClass;
 
 
-    public void ValidSubmit() {
-        StatusClass = "alert-info";
-        StatusMessage = DateTime.Now + " HandleValid submit";
 
-
+    protected async Task ValidSubmit() {
+        var result = await Http.PostAsJsonAsync("https://localhost:5001/api/DataPlanners/create", Planner);
+        NavigationManager.NavigateTo("");
     }
 
-    public void InValidSubmit() {
-        StatusClass = "alert-info";
-        StatusMessage = DateTime.Now + " HandleInValid submit";
-    }
+    protected void InValidSubmit() {}
 
 
 }
