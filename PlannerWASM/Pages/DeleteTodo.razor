@@ -16,7 +16,7 @@
                           Label="Заголовок"
                           Disabled="true"
                           Variant="Variant.Outlined"
-                          maxlength="20"></MudTextField>
+                          maxlength="30"></MudTextField>
         </MudItem>
     </div>
     <div class="todo item">
@@ -25,7 +25,7 @@
                           Label="Описание"
                           Disabled="true"
                           Variant="Variant.Outlined"
-                          maxlength="50"></MudTextField>
+                          maxlength="60"></MudTextField>
         </MudItem>
     </div>
     <div class="todo item">
@@ -35,9 +35,7 @@
                            Disabled="true"
                            TValue="DateTime"
                            FullWidth="false"
-                           EnableTime="true"
-                           Minimum="@DateTime.Now.AddDays(1)"
-                           Maximum="@DateTime.Now.AddDays(1000)" />
+                           EnableTime="true"/>
         </div>
         <div class="todo date pickers">
             <MatDatePicker @bind-Value="Planner.dueTodo"
@@ -45,9 +43,7 @@
                            Disabled="true"
                            TValue="DateTime"
                            FullWidth="false"
-                           EnableTime="true"
-                           Minimum="@DateTime.Now.AddDays(1)"
-                           Maximum="@DateTime.Now.AddDays(1000)" />
+                           EnableTime="true"/>
         </div>
     </div>
     <div class="todo item">
