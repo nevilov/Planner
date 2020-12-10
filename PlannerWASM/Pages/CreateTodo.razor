@@ -20,7 +20,7 @@
                                       Required="true"
                                       RequiredError="Введите заголовок"
                                       Variant="Variant.Outlined"
-                                      maxlength="20"></MudTextField>
+                                      maxlength="30"></MudTextField>
                     </MudItem>
                 </div>
                 <div class="todo item">
@@ -41,7 +41,7 @@
                                        TValue="DateTime"
                                        FullWidth="false"
                                        EnableTime="true"
-                                       Minimum="@DateTime.Now.AddDays(1)"
+                                       Minimum="@DateTime.Now.AddDays(0)"
                                        Maximum="@DateTime.Now.AddDays(1000)" />
                     </div>
                     <div class="todo date pickers">

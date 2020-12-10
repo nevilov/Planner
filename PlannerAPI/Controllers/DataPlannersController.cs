@@ -36,7 +36,7 @@ namespace PlannerAPI.Controllers
 
         
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutVoteInfo(string id, DataPlanner dataPlanner) {
+        public async Task<IActionResult> PutDataModel(string id, DataPlanner dataPlanner) {
             if (id != dataPlanner.Id) {
                 return BadRequest();
             }
@@ -56,9 +56,7 @@ namespace PlannerAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/VoteInfoes
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
         [HttpPost("create")]
         public async Task<IActionResult> Create(PlannerModel model) {
 
