@@ -1,4 +1,6 @@
 ﻿@using Planner.Model
+@inject HttpClient Http
+@inject NavigationManager NavigationManager   
 @page "/CreateTodo"
 <MudThemeProvider/>
 <MudDialogProvider/>
@@ -8,7 +10,6 @@
     <div class="create todo title">
     <h3>Создать задачу</h3>
     </div>
-    
     <div class="Create Todo table">
         <EditForm Model="@Planner" OnValidSubmit="ValidSubmit" OnInvalidSubmit="InValidSubmit">
             <div class="create todo form">
@@ -19,7 +20,7 @@
                                       Required="true"
                                       RequiredError="Введите заголовок"
                                       Variant="Variant.Outlined"
-                                      maxlength="20"></MudTextField>
+                                      maxlength="30"></MudTextField>
                     </MudItem>
                 </div>
                 <div class="todo item">
@@ -40,7 +41,7 @@
                                        TValue="DateTime"
                                        FullWidth="false"
                                        EnableTime="true"
-                                       Minimum="@DateTime.Now.AddDays(1)"
+                                       Minimum="@DateTime.Now.AddDays(-1)"
                                        Maximum="@DateTime.Now.AddDays(1000)" />
                     </div>
                     <div class="todo date pickers">
@@ -50,7 +51,7 @@
                                        TValue="DateTime"
                                        FullWidth="false"
                                        EnableTime="true"
-                                       Minimum="@DateTime.Now.AddDays(1)"
+                                       Minimum="@DateTime.Now.AddDays(-1)"
                                        Maximum="@DateTime.Now.AddDays(1000)" />
                     </div>
                 </div>
@@ -88,21 +89,13 @@
 @code {
     PlannerModel Planner = new PlannerModel();
 
-    private string StatusMessage;
-    private string StatusClass;
 
-
-    public void ValidSubmit() {
-        StatusClass = "alert-info";
-        StatusMessage = DateTime.Now + " HandleValid submit";
-
-
+    protected async Task ValidSubmit() {
+        var result = await Http.PostAsJsonAsync("https://localhost:5001/api/DataPlanners/create", Planner);
+        NavigationManager.NavigateTo("");
     }
 
-    public void InValidSubmit() {
-        StatusClass = "alert-info";
-        StatusMessage = DateTime.Now + " HandleInValid submit";
+    protected void InValidSubmit() {
     }
-
 
 }
