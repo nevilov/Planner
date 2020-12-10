@@ -54,12 +54,12 @@
                                        TValue="DateTime"
                                        FullWidth="false"
                                        EnableTime="true"
-                                       Minimum="@DateTime.Now.AddDays(-1)"
+                                       Minimum="@Planner.startTodo"
                                        Maximum="@DateTime.Now.AddDays(1000)" />
                     </div>
                 </div>
                 <div class="todo item">
-
+                    <p>Выполнено: <MatCheckbox @bind-Value="@Planner.Completed"></MatCheckbox></p>
                 </div>
                 <div class="edit todo save">
                     <button type="submit" class="btn btn-success" style="font-size: 20px;">Сохранить</button>
