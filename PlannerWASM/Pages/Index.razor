@@ -26,7 +26,7 @@
                 <td>@p.Title</td>
                 <td>@p.Description</td>
                 <td>@p.dueTodo</td>
-                <td><MatButton Unelevated="true" Icon="favorite" @onclick="EditTodo">Редактировать</MatButton></td>
+                <td><MatButton Unelevated="true" Icon="favorite" @onclick="(() => EditTodo(p.Id))">Редактировать</MatButton></td>
                 <td><MatButton Unelevated="true" Icon="favorite" @onclick="DeleteTodo" >Удалить</MatButton></td>
             </tr>
             }
@@ -57,8 +57,8 @@
         NavigationManager.NavigateTo("/CreateTodo");
     }
 
-    private void EditTodo() {
-        NavigationManager.NavigateTo("/EditTodo");
+    private void EditTodo(string Id) {
+        NavigationManager.NavigateTo("/EditTodo/" + Id);
     }
 
     private void DeleteTodo() {
