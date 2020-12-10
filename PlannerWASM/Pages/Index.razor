@@ -1,4 +1,5 @@
 ﻿@inject NavigationManager NavigationManager
+@inject HttpClient Http
 @using Planner.Model
 @page "/"
 
@@ -6,29 +7,37 @@
     <div class="create task">
         <MatButton Unelevated="true" Icon="favorite" @onclick="CreateTodo">Создать задачу</MatButton>
     </div>
+    @if (planner != null) {
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Заголовок</th>
                 <th scope="col">Описание</th>
-                <th scope="col">Выполнить до</th>
+                <th scope="col">Выполнить до:</th>
+                <th scope="col">Выполнено:</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <!--Here will be foreach-->
+            @foreach (var p in planner) {
             <tr>
                 <th scope="row">@(++position)</th>
-                <td>F</td>
-                <td>S</td>
-                <td>T</td>
-                <td><MatButton Unelevated="true" Icon="favorite" @onclick="EditTodo">Редактировать</MatButton></td>
-                <td><MatButton Unelevated="true" Icon="favorite" @onclick="DeleteTodo" >Удалить</MatButton></td>
+                <td>@p.Title</td>
+                <td>@p.Description</td>
+                <td>@p.dueTodo</td>
+                <td><MatCheckbox @bind-Value="@p.Completed" Disabled="true"></MatCheckbox></td>
+                <td><MatButton Unelevated="true" Icon="favorite" @onclick="(() => EditTodo(p.Id))">Редактировать</MatButton></td>
+                <td><MatButton Unelevated="true" Icon="favorite" @onclick="(() => DeleteTodo(p.Id))" >Удалить</MatButton></td>
             </tr>
+            }
         </tbody>
     </table>
+    }
+    else { 
+        <p>Загрузка...</p>
+    }
 </div>
 <style>
     .create.task{
@@ -37,7 +46,12 @@
 </style>
 
 @code{
-    PlannerModel planner = new PlannerModel();
+
+    private PlannerModel[] planner;
+
+    protected override async Task OnInitializedAsync() {
+        planner = await Http.GetFromJsonAsync<PlannerModel[]>("https://localhost:5001/api/DataPlanners");
+    }
 
     private int position = 0;
 
@@ -45,12 +59,12 @@
         NavigationManager.NavigateTo("/CreateTodo");
     }
 
-    private void EditTodo() {
-        NavigationManager.NavigateTo("/EditTodo");
+    private void EditTodo(string Id) {
+        NavigationManager.NavigateTo("/EditTodo/" + Id);
     }
 
-    private void DeleteTodo() {
-        NavigationManager.NavigateTo("/DeleteTodo");
+    private void DeleteTodo(string Id) {
+        NavigationManager.NavigateTo("/DeleteTodo/" + Id);
     }
 
 

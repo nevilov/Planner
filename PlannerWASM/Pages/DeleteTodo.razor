@@ -1,5 +1,8 @@
 ﻿@using Planner.Model 
-@page "/DeleteTodo"
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+@page "/DeleteTodo/{Id}"
 
 <MudThemeProvider/>
 <MudDialogProvider/>
@@ -13,7 +16,7 @@
                           Label="Заголовок"
                           Disabled="true"
                           Variant="Variant.Outlined"
-                          maxlength="20"></MudTextField>
+                          maxlength="30"></MudTextField>
         </MudItem>
     </div>
     <div class="todo item">
@@ -22,7 +25,7 @@
                           Label="Описание"
                           Disabled="true"
                           Variant="Variant.Outlined"
-                          maxlength="50"></MudTextField>
+                          maxlength="60"></MudTextField>
         </MudItem>
     </div>
     <div class="todo item">
@@ -32,9 +35,7 @@
                            Disabled="true"
                            TValue="DateTime"
                            FullWidth="false"
-                           EnableTime="true"
-                           Minimum="@DateTime.Now.AddDays(1)"
-                           Maximum="@DateTime.Now.AddDays(1000)" />
+                           EnableTime="true"/>
         </div>
         <div class="todo date pickers">
             <MatDatePicker @bind-Value="Planner.dueTodo"
@@ -42,16 +43,16 @@
                            Disabled="true"
                            TValue="DateTime"
                            FullWidth="false"
-                           EnableTime="true"
-                           Minimum="@DateTime.Now.AddDays(1)"
-                           Maximum="@DateTime.Now.AddDays(1000)" />
+                           EnableTime="true"/>
         </div>
     </div>
     <div class="todo item">
 
     </div>
     <div class="delete todo">
-        <button type="submit" class="btn btn-danger" style="font-size: 20px;">Удалить</button>
+        <button type="submit" class="btn btn-danger" style="font-size: 20px;" @onclick="DeleteRecord">Удалить</button>
+
+        <button type="submit" class="btn btn-primary" style="font-size: 20px;" @onclick="Cancel">Назад</button>
     </div>
     </div>
 
@@ -74,7 +75,27 @@
     }
 </style>
     @code {
+        [Parameter]
+        public string Id { get; set; }
+
+
         PlannerModel Planner = new PlannerModel();
+
+        protected override async Task OnInitializedAsync() {
+            Planner = await Http.GetFromJsonAsync<PlannerModel>("https://localhost:5001/api/DataPlanners/" + Id);
+        }
+
+
+        protected async Task DeleteRecord() {
+            await Http.DeleteAsync("https://localhost:5001/api/DataPlanners/" + Id);
+            NavigationManager.NavigateTo("");
+        }
+
+        protected void Cancel() {
+            NavigationManager.NavigateTo("");
+        }
+
+
 
 
     }

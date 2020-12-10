@@ -1,5 +1,7 @@
 ﻿@using Planner.Model;
-@page "/EditTodo"
+@inject HttpClient Http
+@inject NavigationManager NavigationManager  
+@page "/EditTodo/{id}"
 
 <MudThemeProvider/>
 <MudDialogProvider/>
@@ -21,7 +23,7 @@
                                       Required="true"
                                       RequiredError="Введите заголовок"
                                       Variant="Variant.Outlined"
-                                      maxlength="20"></MudTextField>
+                                      maxlength="30"></MudTextField>
                     </MudItem>
                 </div>
                 <div class="todo item">
@@ -31,7 +33,7 @@
                                       Required="true"
                                       RequiredError="Введите описание"
                                       Variant="Variant.Outlined"
-                                      maxlength="50"></MudTextField>
+                                      maxlength="60"></MudTextField>
                     </MudItem>
                 </div>
                 <div class="todo item">
@@ -42,7 +44,7 @@
                                        TValue="DateTime"
                                        FullWidth="false"
                                        EnableTime="true"
-                                       Minimum="@DateTime.Now.AddDays(1)"
+                                       Minimum="@DateTime.Now.AddDays(-1)"
                                        Maximum="@DateTime.Now.AddDays(1000)" />
                     </div>
                     <div class="todo date pickers">
@@ -52,12 +54,12 @@
                                        TValue="DateTime"
                                        FullWidth="false"
                                        EnableTime="true"
-                                       Minimum="@DateTime.Now.AddDays(1)"
+                                       Minimum="@Planner.startTodo"
                                        Maximum="@DateTime.Now.AddDays(1000)" />
                     </div>
                 </div>
                 <div class="todo item">
-
+                    <p>Выполнено: <MatCheckbox @bind-Value="@Planner.Completed"></MatCheckbox></p>
                 </div>
                 <div class="edit todo save">
                     <button type="submit" class="btn btn-success" style="font-size: 20px;">Сохранить</button>
@@ -88,22 +90,22 @@
 </style>
 
 @code {
+    [Parameter]
+    public string id { get; set; }
+
     PlannerModel Planner = new PlannerModel();
 
-    private string StatusMessage;
-    private string StatusClass;
-
-
-    public void ValidSubmit() {
-        StatusClass = "alert-info";
-        StatusMessage = DateTime.Now + " HandleValid submit";
-
-
+    protected override async Task OnInitializedAsync() {
+        Planner = await Http.GetFromJsonAsync<PlannerModel>("https://localhost:5001/api/DataPlanners/"  + id);
     }
 
-    public void InValidSubmit() {
-        StatusClass = "alert-info";
-        StatusMessage = DateTime.Now + " HandleInValid submit";
+
+    protected async Task ValidSubmit() {
+        await Http.PutAsJsonAsync("https://localhost:5001/api/DataPlanners/" + id, Planner);
+        NavigationManager.NavigateTo("");
     }
+
+    protected void InValidSubmit() { }
 
 }
+
