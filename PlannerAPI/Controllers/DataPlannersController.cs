@@ -25,13 +25,13 @@ namespace PlannerAPI.Controllers
 
         [HttpGet("{id}")]
         public async Task<ActionResult<DataPlanner>> GetDataPlanners(string id) {
-            var voteInfo = await _context.DataPlanners.FindAsync(id);
+            var planner = await _context.DataPlanners.FindAsync(id);
 
-            if (voteInfo == null) {
+            if (planner == null) {
                 return NotFound();
             }
 
-            return voteInfo;
+            return planner;
         }
 
         
@@ -80,16 +80,16 @@ namespace PlannerAPI.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<DataPlanner>> DeleteVoteInfo(string id) {
-            var voteInfo = await _context.DataPlanners.FindAsync(id);
-            if (voteInfo == null) {
+        public async Task<ActionResult<DataPlanner>> DeleteDataPlanner(string id) {
+            var planner = await _context.DataPlanners.FindAsync(id);
+            if (planner == null) {
                 return NotFound();
             }
 
-            _context.DataPlanners.Remove(voteInfo);
+            _context.DataPlanners.Remove(planner);
             await _context.SaveChangesAsync();
 
-            return voteInfo;
+            return planner;
         }
 
         private bool DataPlannerExists(string id) {

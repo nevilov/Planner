@@ -10,7 +10,6 @@
     <div class="create todo title">
     <h3>Создать задачу</h3>
     </div>
-    
     <div class="Create Todo table">
         <EditForm Model="@Planner" OnValidSubmit="ValidSubmit" OnInvalidSubmit="InValidSubmit">
             <div class="create todo form">
@@ -91,14 +90,12 @@
     PlannerModel Planner = new PlannerModel();
 
 
-
-
     protected async Task ValidSubmit() {
         var result = await Http.PostAsJsonAsync("https://localhost:5001/api/DataPlanners/create", Planner);
         NavigationManager.NavigateTo("");
     }
 
-    protected void InValidSubmit() {}
-
+    protected void InValidSubmit() {
+    }
 
 }
