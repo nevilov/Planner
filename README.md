@@ -18,9 +18,14 @@ $ git clone https://github.com/nevilov/Planner.git
 cd PlannerAPI
 dotnet run
 ```
-### - Откройте Planner.sln и запустите проект PlannerWASM -  Вуаля
+### - Откройте Planner.sln и запустите проект PlannerWASM
+Если будут трудности с клонированием, то пишите [мне](https://vk.com/nevilov).
 
 # Скриншоты
-> [![N|Solid](https://psv4.userapi.com/c856416/u283181712/docs/d3/c2b25ec76ca3/1.png?extra=8MWRfbFhyI6gTYCrMsPTn3GxK_spMPkuPQKK4FIpWGVX6c_ArK4Cyo6TOE66O6VEZOyX7UNt1_BXenYcYJe9VxcRfO8QusVx70qFSUfS7rWeARo7BuLC39co8ut2HI3b29P_j5iWalcHYh9QTqq2tTQ)](https://vk.com/nevilov)
->[![N|Solid](https://psv4.userapi.com/c856416/u283181712/docs/d15/6ad2e51273ee/2.png?extra=9VDNLxUR_3-TWTp8WjjBsjpBYAWJzuB7AxF02gSqhZZqnT64u1kkjvPWbpniOmQEOpOwcaOgl5D0clmY920qUr89QtETH_EJag10nVDS7t7KAirMJqwwErA8xNMM7VqDd_cUiIPZ6D_9nu70BzBH1iM)](https://vk.com/nevilov)
->[![N|Solid](https://psv4.userapi.com/c856416/u283181712/docs/d14/8acdc6217dfc/3.png?extra=MCo4ZmNkSH8VsqcLRG1dIzA3VUf5eXkYqgbxgKX5fXgNY-2EK6QgbIFx7eQDJU-6tJAVtpYI5VqkNT4gH16UBPZRbUeBuEz766ob7FxjNYyZS2IjermtIDtP1F6l49A5pbN628NAk2oVyX7Ed566zNc)](https://vk.com/nevilov)
+> [![N|Solid](https://psv4.userapi.com/c856416/u283181712/docs/d15/777fea814b9c/2.png?extra=H_z5LME4x5nR8Yt1xGVubDt8jHH20JxwDYxxeLGHvthb6WBX5MtyG0bObaLlcQ1x56EWiyzX9ywKegBJuCiWz_zY8dGcRyuVgqFjXy1Yh-WOBsz7599MlQmqR9Nw7XoiQ-aHI9UmwqnLu3Kr3nxegnqC6g)](https://vk.com/nevilov)
+>[![N|Solid](https://psv4.userapi.com/c856416/u283181712/docs/d3/b5d28354661f/1.png?extra=ms42MaXuDmC1HrQEZgeGToJtUZXlaBFKKeUA4vKHL5PAkmuIQ57lccbg10omZluJzjQyIRk5zjQJJFISc1aPKJZ6LkharETxj_IHKPynP0oPwAhUIKcp_rzrVYl-hTTnKg74HIHbc2VyfsBIlDaK8GcI9g)](https://vk.com/nevilov)
+>[![N|Solid](https://psv4.userapi.com/c856416/u283181712/docs/d14/78bf463cbedc/3.png?extra=buYreSeDhcwYteptD6dIbshK6Hv-sNeqaKfV8ew8JbCnrSnwNPOz8B7BAuoOffoN65X4m2gvfuXdCC3t2WyaKB3EQFkxQ50BI2BqZUxAX2bfXbXLqqHjsabKVlRyHURxuFnyZiCB8zsSLn_2sx2fjK0qFQ)](https://vk.com/nevilov)
+
+
+# ContinuousIntegration
+### *Сборка API(PlannerAPI) и Blazor приложения(PlannerWASM) - происходят в [GitLab](https://gitlab.com/nevilov/planner) репозитории*
