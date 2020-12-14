@@ -7,7 +7,6 @@
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 
-<h3>EditTodo</h3>
 <div class="Edit todo">
     <div class="edit todo title">
         <h3>Редактировать задачу</h3>
@@ -15,6 +14,8 @@
 
     <div class="Edit Todo table">
         <EditForm Model="@Planner" OnValidSubmit="ValidSubmit" OnInvalidSubmit="InValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
             <div class="edit todo form">
                 <div class="todo item">
                     <MudItem xs="12" sm="6" md="8">
@@ -25,6 +26,7 @@
                                       Variant="Variant.Outlined"
                                       maxlength="30"></MudTextField>
                     </MudItem>
+                    <ValidationMessage For="@(() => Planner.Title)" />
                 </div>
                 <div class="todo item">
                     <MudItem xs="12" sm="6" md="8">
@@ -35,6 +37,7 @@
                                       Variant="Variant.Outlined"
                                       maxlength="60"></MudTextField>
                     </MudItem>
+                    <ValidationMessage For="@(() => Planner.Description)" />
                 </div>
                 <div class="todo item">
                     <div class="todo date pickers">
@@ -54,7 +57,7 @@
                                        TValue="DateTime"
                                        FullWidth="false"
                                        EnableTime="true"
-                                       Minimum="@Planner.startTodo"
+                                       Minimum="@DateTime.Now.AddDays(-1)"
                                        Maximum="@DateTime.Now.AddDays(1000)" />
                     </div>
                 </div>

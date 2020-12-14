@@ -28,8 +28,8 @@
                 <td>@p.Description</td>
                 <td>@p.dueTodo</td>
                 <td><MatCheckbox @bind-Value="@p.Completed" Disabled="true"></MatCheckbox></td>
-                <td><MatButton Unelevated="true" Icon="favorite" @onclick="(() => EditTodo(p.Id))">Редактировать</MatButton></td>
-                <td><MatButton Unelevated="true" Icon="favorite" @onclick="(() => DeleteTodo(p.Id))" >Удалить</MatButton></td>
+                <td><MatButton Unelevated="true" Icon="edit" Style="background-color: #576d6d" @onclick="(() => EditTodo(p.Id))">Редактировать</MatButton></td>
+                <td><MatButton Unelevated="true" Icon="delete_outline" @onclick="(() => DeleteTodo(p.Id))" Style="background-color: #e8023b" >Удалить</MatButton></td>
             </tr>
             }
         </tbody>
