@@ -10,8 +10,13 @@
     <div class="create todo title">
     <h3>Создать задачу</h3>
     </div>
+    <h3 style="color:red">@statusValidation</h3>
     <div class="Create Todo table">
         <EditForm Model="@Planner" OnValidSubmit="ValidSubmit" OnInvalidSubmit="InValidSubmit">
+
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
             <div class="create todo form">
                 <div class="todo item">
                     <MudItem xs="12" sm="6" md="8">
@@ -22,6 +27,7 @@
                                       Variant="Variant.Outlined"
                                       maxlength="30"></MudTextField>
                     </MudItem>
+                    <ValidationMessage For="@(() => Planner.Title)" />
                 </div>
                 <div class="todo item">
                     <MudItem xs="12" sm="6" md="8">
@@ -32,6 +38,7 @@
                                       Variant="Variant.Outlined"
                                       maxlength="50"></MudTextField>
                     </MudItem>
+                    <ValidationMessage For="@(() => Planner.Description)" />
                 </div>
                 <div class="todo item">
                     <div class="todo date pickers">
@@ -61,7 +68,7 @@
                 <div class="create todo save">
                     <button type="submit" class="btn btn-success" style="font-size: 20px;">Добавить</button>
                 </div>
-                
+
             </div>
         </EditForm>
     </div>
@@ -89,6 +96,7 @@
 @code {
     PlannerModel Planner = new PlannerModel();
 
+    string statusValidation { get; set; }
 
     protected async Task ValidSubmit() {
         var result = await Http.PostAsJsonAsync("https://localhost:5001/api/DataPlanners/create", Planner);
@@ -96,6 +104,7 @@
     }
 
     protected void InValidSubmit() {
+        statusValidation = "Заполните все поля!";
     }
 
 }

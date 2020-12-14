@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
+
 
 namespace Planner.Model
 {
@@ -8,8 +10,10 @@ namespace Planner.Model
     {
         public string Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
+        [Required]
         public string Description { get; set; }
 
         public DateTime startTodo { get; set; }
