@@ -1,0 +1,9 @@
+stages:
+    - build
+    - test
+    - dockerize
+    - deploy
+
+include:
+  - local: '/PlannerAPI/ci.yml'
+  - local: '/PlannerWASM/ci.yml'
